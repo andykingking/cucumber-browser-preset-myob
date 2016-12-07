@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+services:
+  - docker
+addons:
+  firefox: "50.0.2"
+env:
+  DOCKER_COMPOSE_VERSION: 1.8.1
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - git clone https://github.com/MYOB-Technology/http_stub_example_consumer.git ../http_stub_example_consumer
+before_script:
+  - npm prune
+script:
+  - npm run commit
+cache:
+  directories:
+    - node_modules
+notifications:
+  email:
+    on_success: change
+    on_failure: always

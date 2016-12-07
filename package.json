@@ -1,0 +1,63 @@
+{
+  "name": "cucumber-browser-myob-presets",
+  "version": "0.0.1",
+  "description": "A common approach for Cucumber features driving a browser via Selenium",
+  "license": "MIT",
+  "author": "Matthew Ueckerman <matthew.ueckerman@myob.com> http://github.com/dueckes",
+  "keywords": [
+    "cucumber-js",
+    "selenium"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MYOB-Technology/cucumber-browser-myob-presets.git"
+  },
+  "homepage": "https://github.com/MYOB-Technology/cucumber-browser-myob-presets#readme",
+  "bugs": {
+    "url": "https://github.com/MYOB-Technology/cucumber-browser-myob-presets/issues"
+  },
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">= 6.9.1"
+  },
+  "scripts": {
+    "clean": "rm -rf tmp dist",
+    "install-selenium-driver": "./bin/install_selenium_driver.sh",
+    "setup": "npm cache clean && rm -rf node_modules && rm -rf install_libraries && npm install && npm run install-selenium-driver",
+    "lint": "eslint . --ext .js",
+    "bundle": "babel src -d lib --retain-lines",
+    "start-servers": "docker-compose up --build --force-recreate -d",
+    "stop-servers": "docker-compose down",
+    "prepare-test": "npm run start-servers && npm run bundle",
+    "cucumber": "bin/test_runner.sh --require=features/support --require=features/step_definitions",
+    "test": "npm run prepare-test && npm run cucumber",
+    "commit": "npm run lint && npm run test"
+  },
+  "dependencies": {
+    "babel-register": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-airbnb": "^2.1.1",
+    "babel-plugin-transform-class-properties": "^6.18.0",
+    "lodash.merge": "^4.6.0",
+    "lodash.tolower": "^4.1.2",
+    "cucumber": "^1.3.1",
+    "selenium-webdriver": "^3.0.1",
+    "sanitize-filename": "^1.6.0",
+    "mkdirp": "^0.5.1",
+    "request-promise-native": "^1.0.3",
+    "request": "^2.79.0",
+    "mz": "^2.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.11.1",
+    "eslint-plugin-babel": "^4.0.0",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^7.1.1",
+    "chai": "^3.5.0"
+  }
+}
