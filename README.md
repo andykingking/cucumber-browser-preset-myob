@@ -22,5 +22,6 @@ The library also encourages good UI automation patterns & practices:
  * Use of [Page Objects](http://martinfowler.com/bliki/PageObject.html)
  * Use of _Flow Objects_, an extension to Page Objects, capturing common flows of activity through a UI
  * Stubbing backend integration using [http_stub](https://github.com/MYOB-Technology/http_stub), giving you full control over backend data and availability
+ * Takes a browser screenshot on any failure, writing an image to disk
 
 See the features directory for usage info.
