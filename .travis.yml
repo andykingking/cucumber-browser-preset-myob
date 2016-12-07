@@ -13,6 +13,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+  - npm run install-selenium-driver
   - git clone https://github.com/MYOB-Technology/http_stub_example_consumer.git ../http_stub_example_consumer
   - git clone https://github.com/MYOB-Technology/http_stub_example.git ../http_stub_example
 before_script:
