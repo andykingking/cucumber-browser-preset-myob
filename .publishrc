@@ -9,5 +9,5 @@
   },
   "confirm": true,
   "publishTag": "latest",
-  "prePublishScript": "npm commit"
+  "prePublishScript": "npm run commit"
 }
