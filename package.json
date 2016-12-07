@@ -16,6 +16,7 @@
   "bugs": {
     "url": "https://github.com/MYOB-Technology/cucumber-browser-myob-presets/issues"
   },
+  "main": "./lib/cucumber-browser-myob-presets.js",
   "files": [
     "bin/",
     "lib/"
@@ -39,7 +40,6 @@
     "cucumber": "bin/cucumber_myob_runner.sh --require=features/support --require=features/step_definitions",
     "test": "npm run prepare-test && npm run cucumber",
     "commit": "npm run clean && npm run lint && npm run test",
-    "prepublish": "publish-please guard",
     "publish-please": "publish-please"
   },
   "dependencies": {

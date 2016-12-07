@@ -1,6 +1,6 @@
-import Base from '../../lib/flows/Base';
+import CucumberPresets from '../../lib/cucumber-browser-myob-presets';
 
-export default class ViewResource extends Base {
+export default class ViewResource extends CucumberPresets.Flow {
 
   go() {
     const listPage = this.pageRegistry.find('Resource List');

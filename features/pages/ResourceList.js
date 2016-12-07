@@ -1,6 +1,6 @@
-import Base from '../../lib/pages/Base';
+import CucumberPresets from '../../lib/cucumber-browser-myob-presets';
 
-export default class ResourceList extends Base {
+export default class ResourceList extends CucumberPresets.Page {
 
   elementLocators = {
     resourceContainer: { id: 'resources' },

@@ -3,6 +3,7 @@
 .eslintignore
 .idea
 .nvmrc
+.publishrc
 .travis.yml
 docker-compose.yml
 build

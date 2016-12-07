@@ -1,11 +1,11 @@
-import WorldFactory from '../../lib/WorldFactory';
+import CucumberPresets from '../../lib/cucumber-browser-myob-presets';
 import ResourceList from '../pages/ResourceList';
 import Resource from '../pages/Resource';
 import ViewResource from '../flows/ViewResource';
 
 const path = require('path');
 
-module.exports = WorldFactory.create(
+module.exports = CucumberPresets.createWorld(
   (world) => {
     world.pageRegistry.register({
       'Resource List': ResourceList,
@@ -18,5 +18,5 @@ module.exports = WorldFactory.create(
       Stub: 5000
     });
   },
-  path.resolve(__dirname, '../config.json')
+  path.resolve(__dirname, 'config.json')
 );

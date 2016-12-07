@@ -1,16 +1,15 @@
-import ConfigFactory from './config/Factory';
-import { driver, browser } from './cucumber/browser';
-import Wait from './selenium/Wait';
-import Screenshot from './selenium/Screenshot';
-import PageRegisry from './pages/Registry';
-import FlowRegistry from './flows/Registry';
-import StubRegistry from './http_stub/Registry';
+import ConfigFactory from '../config/Factory';
+import { driver, browser } from './browser';
+import Wait from '../selenium/Wait';
+import Screenshot from '../selenium/Screenshot';
+import PageRegisry from '../pages/Registry';
+import FlowRegistry from '../flows/Registry';
+import StubRegistry from '../http_stub/Registry';
 
 const path = require('path');
 
-export default class WorldFactory {
-
-  static create(worldInitializer, configPath = path.resolve(__dirname, 'config/default.json'), defaultEnv = 'local') {
+module.exports =
+  function (worldInitializer, configPath = path.resolve(__dirname, 'config/default.json'), defaultEnv = 'local') {
     return function World() {
       this.config = ConfigFactory.create(configPath, defaultEnv);
       this.driver = driver;
@@ -25,6 +24,4 @@ export default class WorldFactory {
       this.stubRegistry = new StubRegistry(this.config);
       worldInitializer(this);
     };
-  }
-
-}
+  };
