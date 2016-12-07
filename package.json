@@ -1,6 +1,6 @@
 {
   "name": "cucumber-browser-myob-presets",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A common approach for Cucumber features driving a browser via Selenium",
   "license": "MIT",
   "author": "Matthew Ueckerman <matthew.ueckerman@myob.com> http://github.com/dueckes",
