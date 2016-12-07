@@ -2,6 +2,8 @@ cucumber-browser-myob-presets
 =============================
 
 [![Build Status](https://travis-ci.org/MYOB-Technology/cucumber-browser-myob-presets.svg)](https://travis-ci.org/MYOB-Technology/cucumber-browser-myob-presets)
+[![npm version](https://img.shields.io/npm/v/cucumber-browser-myob-presets.svg)](https://www.npmjs.com/package/cucumber-browser-myob-presets)
+[![Dependency Status](https://david-dm.org/MYOB-Technology/cucumber-browser-myob-presets.svg)](https://david-dm.org/MYOB-Technology/cucumber-browser-myob-presets)
 
 A Node library intended to simplify browser based automation.
 
