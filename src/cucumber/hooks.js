@@ -4,7 +4,7 @@ module.exports = function () {
 
   this.After((scenario) => {
     if (scenario.isFailed()) {
-      return this.browser.getPageSource().then(() => this.screenshot.create(`${scenario.getName()} failure`));
+      return this.screenshot.create(`${scenario.getName()} failure`);
     }
     return Promise.resolve('Scenario Succeeded');
   });

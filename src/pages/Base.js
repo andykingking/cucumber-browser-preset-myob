@@ -41,6 +41,10 @@ export default class Base {
     return this.findVisibleElement(locatorName).getText();
   }
 
+  waitUntilElementContains(locatorName, text) {
+    return this.wait.untilElementContains(this.findVisibleElement(locatorName), text);
+  }
+
   disableClick(locatorName) {
     return this.browser.executeScript(
       'arguments[0].onclick=function() { return false; };', this.findElement(locatorName)

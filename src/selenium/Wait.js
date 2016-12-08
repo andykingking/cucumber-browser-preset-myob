@@ -38,6 +38,10 @@ export default class Wait {
     );
   }
 
+  untilElementContains(element, text) {
+    return this.browser.wait(this.until.elementTextContains(element, text));
+  }
+
   untilNumberOfWindows(number, timeout = 30000) {
     return this.browser.wait(
       new Condition(

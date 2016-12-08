@@ -25,5 +25,6 @@ The library encourages UI automation patterns & practices:
  * Use of _Flow Objects_, an extension to Page Objects, capturing common flows of activity through a UI
  * Stubbing backend integration using [http_stub](https://github.com/MYOB-Technology/http_stub), giving you full control over backend data and availability
  * Takes a browser screenshot on any failure, writing an image to disk
+ * Reduces the browsers size when configured to simulate a mobile screen size
 
 See the features directory for a usage example.
