@@ -3,11 +3,11 @@ import Base from './Base';
 export default class Blank extends Base {
 
   load() {
-    return this.browser.get('http:').catch(() => Promise.resolve('Blank page forcibly clears DOM'));
+    return this.browser.get('about:blank').catch(() => Promise.resolve('Blank page forcibly clears DOM'));
   }
 
   waitUntilVisible() {
-    return this.wait.untilTitleContains('Problem loading page');
+    return this.wait.untilTitleContains('');
   }
 
 }

@@ -1,10 +1,10 @@
 const fs = require('fs');
 const merge = require('lodash.merge');
 
-export default class Factory {
+export default class Application {
 
-  static create(path, defaultEnv) {
-    const configForAllEnvironments = this._readConfiguration(path);
+  static load(path, defaultEnv) {
+    const configForAllEnvironments = this._readFile(path);
     const defaultsConfig = configForAllEnvironments.defaults;
     const environment = process.env.NODE_ENV === undefined ? defaultEnv : process.env.NODE_ENV;
     const environmentConfig = configForAllEnvironments[environment];
@@ -13,7 +13,7 @@ export default class Factory {
     return config;
   }
 
-  static _readConfiguration(path) {
+  static _readFile(path) {
     const config = JSON.parse(fs.readFileSync(path));
     if (config.defaults === undefined) {
       config.defaults = {};
