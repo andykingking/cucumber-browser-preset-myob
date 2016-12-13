@@ -1,8 +1,8 @@
-const path = require('path');
-const mkdirp = require('mkdirp');
-const toLower = require('lodash.tolower');
-const sanitize = require('sanitize-filename');
-const fs = require('mz/fs');
+import path from 'path';
+import mkdirp from 'mkdirp';
+import toLower from 'lodash.tolower';
+import sanitize from 'sanitize-filename';
+import fs from 'mz/fs';
 
 export default class Screenshot {
 

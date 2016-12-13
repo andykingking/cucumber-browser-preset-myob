@@ -1,6 +1,6 @@
 {
-  "name": "cucumber-browser-myob-presets",
-  "version": "0.0.5",
+  "name": "cucumber-browser-preset-myob",
+  "version": "0.0.1",
   "description": "A common approach for Cucumber features driving a browser via Selenium",
   "license": "MIT",
   "author": "Matthew Ueckerman <matthew.ueckerman@myob.com> http://github.com/dueckes",
@@ -10,13 +10,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MYOB-Technology/cucumber-browser-myob-presets.git"
+    "url": "git+https://github.com/MYOB-Technology/cucumber-browser-preset-myob.git"
   },
-  "homepage": "https://github.com/MYOB-Technology/cucumber-browser-myob-presets#readme",
+  "homepage": "https://github.com/MYOB-Technology/cucumber-browser-preset-myob#readme",
   "bugs": {
-    "url": "https://github.com/MYOB-Technology/cucumber-browser-myob-presets/issues"
+    "url": "https://github.com/MYOB-Technology/cucumber-browser-preset-myob/issues"
   },
-  "main": "./lib/cucumber-browser-myob-presets.js",
+  "main": "./lib/cucumber-browser-preset-myob.js",
   "files": [
     "bin/",
     "lib/"

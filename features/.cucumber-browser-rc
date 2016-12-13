@@ -1,0 +1,7 @@
+{
+  "environments": {
+    "local": {
+      "stubHost": "localhost"
+    }
+  }
+}

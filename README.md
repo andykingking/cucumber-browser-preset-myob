@@ -1,9 +1,9 @@
-cucumber-browser-myob-presets
+cucumber-browser-preset-myob
 =============================
 
-[![Build Status](https://travis-ci.org/MYOB-Technology/cucumber-browser-myob-presets.svg)](https://travis-ci.org/MYOB-Technology/cucumber-browser-myob-presets)
-[![npm version](https://img.shields.io/npm/v/cucumber-browser-myob-presets.svg)](https://www.npmjs.com/package/cucumber-browser-myob-presets)
-[![Dependency Status](https://david-dm.org/MYOB-Technology/cucumber-browser-myob-presets.svg)](https://david-dm.org/MYOB-Technology/cucumber-browser-myob-presets)
+[![Build Status](https://travis-ci.org/MYOB-Technology/cucumber-browser-preset-myob.svg)](https://travis-ci.org/MYOB-Technology/cucumber-browser-preset-myob)
+[![npm version](https://img.shields.io/npm/v/cucumber-browser-preset-myob.svg)](https://www.npmjs.com/package/cucumber-browser-preset-myob)
+[![Dependency Status](https://david-dm.org/MYOB-Technology/cucumber-browser-preset-myob.svg)](https://david-dm.org/MYOB-Technology/cucumber-browser-preset-myob)
 
 A Node library intended to simplify browser based automation.
 
@@ -19,6 +19,7 @@ This library strives to simplify this effort.
 This library integrates tightly with the following libraries:
 * [Cucumber](https://github.com/cucumber/cucumber-js)
 * [Selenium](https://www.npmjs.com/package/selenium-webdriver)
+* Installs & uses [geckodriver](https://github.com/mozilla/geckodriver) to drive Firefox
 
 The library encourages UI automation patterns & practices:
  * Use of [Page Objects](http://martinfowler.com/bliki/PageObject.html)

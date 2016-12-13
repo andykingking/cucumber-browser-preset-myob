@@ -2,8 +2,8 @@
 
 set -e
 
-if [ -d "node_modules/cucumber-browser-myob-presets" ]; then
-  AUTOLOAD_DIRECTORY="node_modules/cucumber-browser-myob-presets/lib/cucumber"
+if [ -d "node_modules/cucumber-browser-preset-myob" ]; then
+  AUTOLOAD_DIRECTORY="node_modules/cucumber-browser-preset-myob/lib/cucumber"
 else
   AUTOLOAD_DIRECTORY="lib/cucumber"
 fi

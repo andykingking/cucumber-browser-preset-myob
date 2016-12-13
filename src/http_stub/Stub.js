@@ -1,6 +1,6 @@
 import rp from 'request-promise-native';
 
-const handleRejection = (err) => { throw err; };
+const propagateError = (err) => { throw err; };
 
 export default class RealStub {
 
@@ -13,14 +13,14 @@ export default class RealStub {
       method: 'POST',
       uri: `${this.baseUri}/http_stub/scenarios/activate`,
       form: { name: scenarioName }
-    }).catch(handleRejection);
+    }).catch(propagateError);
   }
 
   reset() {
     return rp({
       method: 'POST',
       uri: `${this.baseUri}/http_stub/stubs/reset`
-    }).catch(handleRejection);
+    }).catch(propagateError);
   }
 
 }

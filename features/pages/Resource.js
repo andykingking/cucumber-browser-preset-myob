@@ -1,4 +1,4 @@
-import CucumberPresets from '../../lib/cucumber-browser-myob-presets';
+import CucumberPresets from '../../lib/cucumber-browser-preset-myob';
 
 export default class Resource extends CucumberPresets.Page {
 

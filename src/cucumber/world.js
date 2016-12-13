@@ -1,4 +1,4 @@
-import ApplicationConfig from '../config/Application';
+import config from '../config';
 import { driver, browser } from './browser';
 import Wait from '../selenium/Wait';
 import Screenshot from '../selenium/Screenshot';
@@ -6,13 +6,9 @@ import PageRegisry from '../pages/Registry';
 import FlowRegistry from '../flows/Registry';
 import StubRegistry from '../http_stub/Registry';
 
-const path = require('path');
-
-const defaultConfigFilePath = path.resolve(__dirname, 'config/application_default.json');
-
-module.exports = function (worldInitializer, configPath = defaultConfigFilePath, defaultEnv = 'local') {
+module.exports = function (worldInitializer, environmentName = process.env.NODE_ENV) {
   return function World() {
-    this.config = ApplicationConfig.load(configPath, defaultEnv);
+    this.config = config.environment(environmentName || 'local');
     this.driver = driver;
     this.browser = browser;
 

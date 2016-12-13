@@ -1,5 +1,5 @@
-const by = require('selenium-webdriver/lib/by');
-const webdriver = require('selenium-webdriver/lib/webdriver');
+import by from 'selenium-webdriver/lib/by';
+import webdriver from 'selenium-webdriver/lib/webdriver';
 
 const Condition = webdriver.Condition;
 

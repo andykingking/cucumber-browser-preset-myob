@@ -1,6 +1,5 @@
+import merge from 'lodash.merge';
 import NotFoundError from './NotFoundError';
-
-const merge = require('lodash.merge');
 
 export default class Registry {
 

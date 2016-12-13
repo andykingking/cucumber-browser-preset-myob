@@ -1,6 +1,5 @@
+import { expect } from 'chai';
 import World from '../support/world';
-
-const expect = require('chai').expect;
 
 module.exports = function () {
   this.World = World;

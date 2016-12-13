@@ -1,5 +1,5 @@
 Feature: Package Verification
-  In order to gain confidence in cucumber-browser-myob-presets releases
+  In order to gain confidence in cucumber-browser-preset-myob releases
   As a contributor
   I want scenarios using the features of the library to be supported
 

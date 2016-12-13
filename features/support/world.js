@@ -1,9 +1,7 @@
-import CucumberPresets from '../../lib/cucumber-browser-myob-presets';
+import CucumberPresets from '../../lib/cucumber-browser-preset-myob';
 import ResourceList from '../pages/ResourceList';
 import Resource from '../pages/Resource';
 import ViewResource from '../flows/ViewResource';
-
-const path = require('path');
 
 module.exports = CucumberPresets.createWorld(
   (world) => {
@@ -17,6 +15,5 @@ module.exports = CucumberPresets.createWorld(
     world.stubRegistry.register({
       Stub: 5000
     });
-  },
-  path.resolve(__dirname, 'config.json')
+  }
 );

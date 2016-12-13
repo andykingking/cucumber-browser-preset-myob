@@ -1,4 +1,4 @@
-const { browser } = require('./browser');
+import { browser } from './browser';
 
 module.exports = function () {
 
