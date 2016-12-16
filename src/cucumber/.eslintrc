@@ -1,6 +1,7 @@
 {
   "rules": {
     "padded-blocks": "off",
-    "func-names": "off"
+    "func-names": "off",
+    "new-cap": "off"
   }
 }

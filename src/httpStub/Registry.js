@@ -1,6 +1,6 @@
 import Stub from './Stub';
 import NoOp from './NoOp';
-import NotFoundError from './NotFoundError';
+import StubNotFoundError from './StubNotFoundError';
 
 export default class Registry {
 
@@ -18,7 +18,7 @@ export default class Registry {
 
   find(name) {
     const stub = this.stubsByName[name];
-    if (stub == null) throw new NotFoundError(name);
+    if (stub == null) throw new StubNotFoundError(name);
     return stub;
   }
 

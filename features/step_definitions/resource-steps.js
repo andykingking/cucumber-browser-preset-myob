@@ -1,8 +1,6 @@
 import { expect } from 'chai';
-import World from '../support/world';
 
 module.exports = function () {
-  this.World = World;
 
   this.Given(/^there are resources$/, () => {
     return this.stubRegistry.find('Stub').activate('Get: Many Resources');

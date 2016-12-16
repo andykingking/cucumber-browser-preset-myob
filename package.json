@@ -1,6 +1,6 @@
 {
   "name": "cucumber-browser-preset-myob",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "description": "A common approach for Cucumber features driving a browser via Selenium",
   "license": "MIT",
   "author": "Matthew Ueckerman <matthew.ueckerman@myob.com> http://github.com/dueckes",
@@ -23,7 +23,7 @@
   ],
   "bin": {
     "install_geckodriver": "./bin/install_geckodriver.sh",
-    "cucumber_myob_runner": "./bin/cucumber_myob_runner.sh"
+    "cucumber_browser_runner": "./bin/cucumber_browser_runner.sh"
   },
   "engines": {
     "node": ">= 6.9.1"
@@ -37,7 +37,7 @@
     "start-servers": "docker-compose up --build --force-recreate -d",
     "stop-servers": "docker-compose down",
     "prepare-test": "npm run start-servers && npm run bundle",
-    "cucumber": "bin/cucumber_myob_runner.sh --require=features/support --require=features/step_definitions",
+    "cucumber": "bin/cucumber_browser_runner.sh --require=features/support --require=features/step_definitions",
     "test": "npm run bundle && bin/test_runner.sh",
     "commit": "npm run clean && npm run lint && npm run test",
     "publish-please": "publish-please"
@@ -53,8 +53,8 @@
     "selenium-webdriver": "^3.0.1",
     "sanitize-filename": "^1.6.0",
     "mkdirp": "^0.5.1",
-    "request-promise-native": "^1.0.3",
-    "request": "^2.79.0",
+    "axios": "^0.15.3",
+    "es6-error": "^4.0.0",
     "mz": "^2.6.0"
   },
   "devDependencies": {

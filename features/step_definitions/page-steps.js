@@ -1,7 +1,4 @@
-import World from '../support/world';
-
 module.exports = function () {
-  this.World = World;
 
   this.When(/^I navigate to the (.+) page$/, (pageName) => {
     this.page = this.pageRegistry.find(pageName);

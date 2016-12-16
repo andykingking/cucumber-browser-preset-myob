@@ -2,6 +2,10 @@ import { browser } from './browser';
 
 module.exports = function () {
 
+  this.Before(() => {
+    return this.screenshot.ensureDirectoryExists();
+  });
+
   this.After((scenario) => {
     if (scenario.isFailed()) {
       return this.screenshot.create(`${scenario.getName()} failure`);
