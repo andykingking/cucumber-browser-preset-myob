@@ -3,7 +3,7 @@ node_js:
 services:
   - docker
 addons:
-  firefox: "50.0.2"
+  firefox: "50.1.0"
 env:
   DOCKER_COMPOSE_VERSION: 1.8.1
 before_install:
