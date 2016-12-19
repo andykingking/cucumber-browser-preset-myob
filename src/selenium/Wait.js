@@ -14,10 +14,6 @@ export default class Wait {
     return this.browser.wait(this.until.titleContains(text));
   }
 
-  untilVisible(locator) {
-    return this.browser.wait(this.until.elementIsVisible(this.untilFound(locator)));
-  }
-
   untilFound(locator) {
     return this.browser.wait(this.until.elementLocated(locator));
   }
@@ -36,6 +32,18 @@ export default class Wait {
       ),
       timeout
     );
+  }
+
+  untilVisible(locator) {
+    return this.browser.wait(this.until.elementIsVisible(this.untilFound(locator)));
+  }
+
+  untilEnabled(locator) {
+    return this.browser.wait(this.until.elementIsEnabled(this.untilFound(locator)));
+  }
+
+  untilDisabled(locator) {
+    return this.browser.wait(this.until.elementIsDisabled(this.untilFound(locator)));
   }
 
   untilElementContains(element, text) {

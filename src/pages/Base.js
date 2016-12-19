@@ -33,16 +33,24 @@ export default class Base {
       .then(elements => promise.filter(elements, element => element.isDisplayed()));
   }
 
-  waitUntilNotFound(locatorName) {
-    return this.wait.untilNotFound(this.elementLocators[locatorName]);
+  findEnabledElement(locatorName) {
+    return this.wait.untilEnabled(this.elementLocators[locatorName]);
+  }
+
+  findDisabledElement(locatorName) {
+    return this.wait.untilDisabled(this.elementLocators[locatorName]);
+  }
+
+  waitUntilElementContains(locatorName, text) {
+    return this.wait.untilElementContains(this.findVisibleElement(locatorName), text);
   }
 
   textIn(locatorName) {
     return this.findVisibleElement(locatorName).getText();
   }
 
-  waitUntilElementContains(locatorName, text) {
-    return this.wait.untilElementContains(this.findVisibleElement(locatorName), text);
+  waitUntilNotFound(locatorName) {
+    return this.wait.untilNotFound(this.elementLocators[locatorName]);
   }
 
   disableClick(locatorName) {
