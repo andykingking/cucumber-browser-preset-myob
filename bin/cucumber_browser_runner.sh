@@ -3,9 +3,9 @@
 set -e
 
 if [ -d "node_modules/cucumber-browser-preset-myob" ]; then
-  AUTOLOAD_DIRECTORY="node_modules/cucumber-browser-preset-myob/lib/cucumber"
+  BASE_DIRECTORY="node_modules/cucumber-browser-preset-myob/lib"
 else
-  AUTOLOAD_DIRECTORY="lib/cucumber"
+  BASE_DIRECTORY="lib"
 fi
 
-PATH=$PATH:build/install_libraries/bin cucumber-js -f pretty --compiler=js:babel-register --require=${AUTOLOAD_DIRECTORY} "$@"
+PATH=$PATH:build/install_libraries/bin cucumber-js -f pretty --compiler=js:babel-register --require=${BASE_DIRECTORY}/cucumber --require=${BASE_DIRECTORY}/stepDefinitions "$@"

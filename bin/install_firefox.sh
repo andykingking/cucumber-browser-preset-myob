@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION="50.0.2"
+VERSION="50.1.0"
 
 wget https://ftp.mozilla.org/pub/firefox/releases/${VERSION}/mac/en-US/Firefox%20${VERSION}.dmg
 FF_DRIVE=$(hdiutil attach "Firefox ${VERSION}.dmg" | grep "/Volumes/Firefox" | cut -f1)

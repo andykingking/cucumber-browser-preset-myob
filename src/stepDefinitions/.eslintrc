@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "padded-blocks": "off",
+    "func-names": "off"
+  }
+}
