@@ -41,7 +41,7 @@ A `cucumber_browser_runner` sh script is provided that runs cucumber using [babe
 
 ###Page Objects
 
-A base [Page_class](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/pages/Base.js) provides short-hand for interacting with elements on page.
+A base [Page class](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/pages/Base.js) provides short-hand for interacting with elements on page.
 To use a Page Object, extend the base class, register the class and then find & use the page when needed:
 
 ```
@@ -100,7 +100,7 @@ module.exports = function() {
 
 ```
 
-A set of default step definitions have been provided to manipulate pages - see [page-steps.js](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/stepDefinitions/page-steps.js). 
+A set of page related step definitions are loaded by the test runner and available by default - see [page-steps.js](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/stepDefinitions/page-steps.js). 
 
 ###Flow Objects
 
@@ -149,7 +149,7 @@ module.exports = function() {
 
 ###http_stub Stubs
 
-A stub registry is available, you can register a stub as being available on a port and subsequently interact with the stub.
+Through a stub registry you can register a stub as being available on a port and subsequently interact with the stub.
 
 ```
 \\ support\world.js
