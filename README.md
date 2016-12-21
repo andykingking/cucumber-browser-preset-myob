@@ -32,16 +32,16 @@ The library encourages UI automation patterns & practices:
 
 ##Usage
 
-The [projects features directory](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/master/features) is a usage example.
+The [projects features directory](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/tree/master/features) is a usage example.
 The project offers a number of integration points.
 
 ###Test Runner
 
-A `cucumber_browser_runner` sh script is provided that runs cucumber using [babel]() and auto-loads essential `cucumber-browser-preset-myob` dependencies.
+A `cucumber_browser_runner` sh script is provided that runs cucumber using [babel](https://github.com/babel/babel/tree/master/packages/babel-register) and auto-loads essential `cucumber-browser-preset-myob` dependencies.
 
 ###Page Objects
 
-A base [Page_class](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/master/src/pages/Base) provides short-hand for interacting with elements on page.
+A base [Page_class](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/pages/Base.js) provides short-hand for interacting with elements on page.
 To use a Page Object, extend the base class, register the class and then find & use the page when needed:
 
 ```
@@ -100,11 +100,11 @@ module.exports = function() {
 
 ```
 
-A set of default step definitions have been provided to manipulate pages - see [page-steps.js](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/master/src/stepDefinitions/page-steps.js). 
+A set of default step definitions have been provided to manipulate pages - see [page-steps.js](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/stepDefinitions/page-steps.js). 
 
 ###Flow Objects
 
-A base [Flow class](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/master/src/flows/Base) aids navigation across pages.
+A base [Flow class](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/flows/Base.js) aids navigation across pages.
 To use a Flow Object, the steps are identical to Page Objects:
 
 ```
