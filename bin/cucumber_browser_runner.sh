@@ -2,10 +2,13 @@
 
 set -e
 
-if [ -d "node_modules/cucumber-browser-preset-myob" ]; then
-  BASE_DIRECTORY="node_modules/cucumber-browser-preset-myob/lib"
-else
-  BASE_DIRECTORY="lib"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)"
+
+if [ "$(basename "$ROOT_DIR")" = "node_modules" ]; then
+  ROOT_DIR="$ROOT_DIR/cucumber-browser-preset-myob"
 fi
 
-PATH=$PATH:build/install_libraries/bin cucumber-js -f pretty --compiler=js:babel-register --require=${BASE_DIRECTORY}/cucumber --require=${BASE_DIRECTORY}/stepDefinitions "$@"
+BASE_DIRECTORY="$ROOT_DIR/lib"
+LOCAL_PATH="$ROOT_DIR/build/install_libraries/bin:$ROOT_DIR/node_modules/.bin"
+
+PATH="$LOCAL_PATH:$PATH" cucumber-js -f pretty --compiler=js:babel-register --require=${BASE_DIRECTORY}/cucumber --require=${BASE_DIRECTORY}/stepDefinitions "$@"
