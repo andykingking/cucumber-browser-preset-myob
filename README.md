@@ -44,13 +44,13 @@ A `cucumber_browser_runner` sh script is provided that runs cucumber using [babe
 A base [Page class](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/pages/Base.js) provides short-hand for interacting with elements on page.
 To use a Page Object, extend the base class, register the class and then find & use the page when needed:
 
-```
+``` js
 \\ pages\MyPage.js
 import { Page } from 'cucumber-browser-preset-myob';
 
 export default class MyPage extends Page {
 
-  // Define location of elements referred to on page 
+  // Define location of elements referred to on page
   elementLocators = {
     someElement: { id: 'someElement' },
     submit: { xpath: '\\input[type="submit"]' }
@@ -65,7 +65,7 @@ export default class MyPage extends Page {
   waitUntilVisible() {
     return this.findVisibleElement('someElement');
   }
-  
+
   // Interact with elements of page as needed
   submit() {
     return this.findVisibleElement('submit');
@@ -100,14 +100,14 @@ module.exports = function() {
 
 ```
 
-A set of page related step definitions are loaded by the test runner and available by default - see [page-steps.js](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/stepDefinitions/page-steps.js). 
+A set of page related step definitions are loaded by the test runner and available by default - see [page-steps.js](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/stepDefinitions/page-steps.js).
 
 ###Flow Objects
 
 A base [Flow class](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/flows/Base.js) aids navigation across pages.
 To use a Flow Object, the steps are identical to Page Objects:
 
-```
+``` js
 \\ flows\MyFlow.js
 import { Flow } from 'cucumber-browser-preset-myob';
 
@@ -151,7 +151,7 @@ module.exports = function() {
 
 Through a stub registry you can register a stub as being available on a port and subsequently interact with the stub.
 
-```
+``` js
 \\ support\world.js
 import CucumberPresets from 'cucumber-browser-preset-myob';
 
