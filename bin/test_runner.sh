@@ -7,18 +7,18 @@ function clean_up() {
   echo ">>> Tests complete"
 
   echo ">>> Stopping servers..."
-  npm run stop-servers
+  yarn run stop-servers
   echo ">>> Servers stopped"
 
   exit $TESTS_EXIT_CODE
 }
 
 echo ">>> Starting servers..."
-npm run start-servers
+yarn run start-servers
 echo ">>> Servers started"
 
 trap clean_up EXIT INT TERM
 
 echo ">>> Running tests..."
-SELENIUM_DRIVER=chrome npm run cucumber
-SELENIUM_DRIVER=firefox npm run cucumber
+SELENIUM_DRIVER=chrome yarn run cucumber
+SELENIUM_DRIVER=firefox yarn run cucumber
