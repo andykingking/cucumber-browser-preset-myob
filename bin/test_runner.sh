@@ -33,6 +33,11 @@ echo ">>> Servers started"
 
 trap clean_up EXIT INT TERM
 
+if [ "$TRAVIS" = true]; then
+  echo "Waiting for servers to stabilise..."
+  sleep 2s
+fi
+
 echo ">>> Running tests..."
 SELENIUM_DRIVER=chrome yarn run cucumber
 SELENIUM_DRIVER=firefox yarn run cucumber
