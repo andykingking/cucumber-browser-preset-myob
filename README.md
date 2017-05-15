@@ -1,4 +1,4 @@
-#cucumber-browser-preset-myob
+# cucumber-browser-preset-myob
 
 [![Build Status](https://travis-ci.org/MYOB-Technology/cucumber-browser-preset-myob.svg)](https://travis-ci.org/MYOB-Technology/cucumber-browser-preset-myob)
 [![npm version](https://img.shields.io/npm/v/cucumber-browser-preset-myob.svg)](https://www.npmjs.com/package/cucumber-browser-preset-myob)
@@ -6,51 +6,59 @@
 
 A Node library intended to simplify browser based automation.
 
-##Motivation
+## Motivation
 
-@ MYOB we develop a number of frontend's using a similar browser automation toolsets and patterns.
+At MYOB we develop a number of frontend's using a similar browser automation toolsets and patterns.
 
 We found the process for replicating, upgrading & sustaining these tools was onerous as the numbers of frontend's fanned-out.
 
 This library strives to simplify this effort.
 
-##Dependencies
+## Dependencies
 
 This library integrates tightly with the following libraries:
+
 * [Cucumber](https://github.com/cucumber/cucumber-js)
 * [Selenium](https://www.npmjs.com/package/selenium-webdriver)
-* Installs & uses [geckodriver](https://github.com/mozilla/geckodriver) to drive Firefox
+* [geckodriver](https://github.com/mozilla/geckodriver) to drive Firefox
+* [chromedriver](https://sites.google.com/a/chromium.org/chromedriver) to drive Google Chrome
 
-##Patterns & Practices
+## Patterns & Practices
 
 The library encourages UI automation patterns & practices:
+
 * Use of [Page Objects](http://martinfowler.com/bliki/PageObject.html)
 * Use of _Flow Objects_, an extension to Page Objects, capturing common flows of activity through a UI
 * Stubbing backend integration using [http_stub](https://github.com/MYOB-Technology/http_stub), giving you full control over backend data and availability
 * Takes a browser screenshot on any failure, writing an image to disk
 * Reduces the browsers size when configured to simulate a mobile screen size
 
-##Usage
+## Usage
 
 The [projects features directory](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/tree/master/features) is a usage example.
 The project offers a number of integration points.
 
-###Test Runner
+### Test Runner
 
 A `cucumber_browser_runner` sh script is provided that runs cucumber using [babel](https://github.com/babel/babel/tree/master/packages/babel-register) and auto-loads essential `cucumber-browser-preset-myob` dependencies.
 
-###Page Objects
+The driver can be selected using the `SELENIUM_DRIVER` environment variable. Currently supported drivers are:
+
+* firefox (default)
+* chrome
+
+### Page Objects
 
 A base [Page class](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/pages/Base.js) provides short-hand for interacting with elements on page.
-To use a Page Object, extend the base class, register the class and then find & use the page when needed:
+To use a Page Object, extend the base class, register the class and then find and use the page when needed:
 
-```
-\\ pages\MyPage.js
+``` js
+// pages/MyPage.js
 import { Page } from 'cucumber-browser-preset-myob';
 
 export default class MyPage extends Page {
 
-  // Define location of elements referred to on page 
+  // Define location of elements referred to on page
   elementLocators = {
     someElement: { id: 'someElement' },
     submit: { xpath: '\\input[type="submit"]' }
@@ -65,7 +73,7 @@ export default class MyPage extends Page {
   waitUntilVisible() {
     return this.findVisibleElement('someElement');
   }
-  
+
   // Interact with elements of page as needed
   submit() {
     return this.findVisibleElement('submit');
@@ -73,9 +81,9 @@ export default class MyPage extends Page {
 
 }
 
-\\ support\world.js
+// support/world.js
 import CucumberPresets from 'cucumber-browser-preset-myob';
-import MyPage from '..\pages\MyPage';
+import MyPage from '../pages/MyPage';
 
 module.exports = CucumberPresets.createWorld(
   (world) => {
@@ -84,8 +92,8 @@ module.exports = CucumberPresets.createWorld(
   }
 );
 
-\\ step_definitions\my-steps.js
-import World from '..\support\World';
+// step_definitions/my-steps.js
+import World from '../support/World';
 
 module.exports = function() {
   this.World = World;
@@ -97,18 +105,17 @@ module.exports = function() {
   });
 
 }
-
 ```
 
-A set of page related step definitions are loaded by the test runner and available by default - see [page-steps.js](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/stepDefinitions/page-steps.js). 
+A set of page related step definitions are loaded by the test runner and available by default - see [page-steps.js](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/stepDefinitions/page-steps.js).
 
-###Flow Objects
+### Flow Objects
 
 A base [Flow class](https://github.com/MYOB-Technology/cucumber-browser-preset-myob/blob/master/src/flows/Base.js) aids navigation across pages.
 To use a Flow Object, the steps are identical to Page Objects:
 
-```
-\\ flows\MyFlow.js
+``` js
+// flows/MyFlow.js
 import { Flow } from 'cucumber-browser-preset-myob';
 
 export default class MyFlow extends Flow {
@@ -121,9 +128,9 @@ export default class MyFlow extends Flow {
 
 }
 
-\\ support\world.js
+// support/world.js
 import CucumberPresets from 'cucumber-browser-preset-myob';
-import MyFlow from '..\flows\MyFlow';
+import MyFlow from '../flows/MyFlow';
 
 module.exports = CucumberPresets.createWorld(
   (world) => {
@@ -132,8 +139,8 @@ module.exports = CucumberPresets.createWorld(
   }
 );
 
-\\ step_definitions\my-steps.js
-import World from '..\support\World';
+// step_definitions/my-steps.js
+import World from '../support/World';
 
 module.exports = function() {
   this.World = World;
@@ -144,15 +151,14 @@ module.exports = function() {
   });
 
 }
-
 ```
 
-###http_stub Stubs
+### http_stub Stubs
 
 Through a stub registry you can register a stub as being available on a port and subsequently interact with the stub.
 
-```
-\\ support\world.js
+``` js
+// support/world.js
 import CucumberPresets from 'cucumber-browser-preset-myob';
 
 module.exports = CucumberPresets.createWorld(
@@ -162,8 +168,8 @@ module.exports = CucumberPresets.createWorld(
   }
 );
 
-\\ step_definitions\my-steps.js
-import World from '..\support\World';
+// step_definitions/my-steps.js
+import World from '../support/World';
 
 module.exports = function() {
   this.World = World;
@@ -174,9 +180,8 @@ module.exports = function() {
   });
 
 }
-
 ```
 
-###World Generation
+### World Generation
 
 A cucumber World factory method is provided that provides the ability to use Page & Flow Objects as well as Stubs - see the examples above.

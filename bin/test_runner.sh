@@ -7,17 +7,37 @@ function clean_up() {
   echo ">>> Tests complete"
 
   echo ">>> Stopping servers..."
-  npm run stop-servers
+  yarn run stop-servers
   echo ">>> Servers stopped"
 
   exit $TESTS_EXIT_CODE
 }
 
+function wait_until_responding() {
+  echo "Waiting for $1:$2 to respond..."
+  for i in $(seq 1 600); do
+    if nc -z $1 $2; then
+      echo "$1:$2 has responded"
+      break
+    else
+      sleep 0.1
+    fi
+  done
+}
+
 echo ">>> Starting servers..."
-npm run start-servers
+yarn run start-servers
+wait_until_responding localhost 3000
+wait_until_responding localhost 5000
 echo ">>> Servers started"
 
 trap clean_up EXIT INT TERM
 
+if [ "$TRAVIS" = true ]; then
+  echo "Waiting for servers to stabilise..."
+  sleep 2s
+fi
+
 echo ">>> Running tests..."
-npm run cucumber
+SELENIUM_DRIVER=chrome yarn run cucumber
+SELENIUM_DRIVER=firefox yarn run cucumber

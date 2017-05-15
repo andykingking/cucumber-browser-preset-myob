@@ -3,23 +3,27 @@ node_js:
 services:
   - docker
 addons:
-  firefox: "50.1.0"
+  firefox: "53.0.2"
+  apt:
+    packages:
+      - google-chrome-stable
 env:
   DOCKER_COMPOSE_VERSION: 1.8.1
+  YARN_VERSION: 0.24.4
 before_install:
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
   - export DISPLAY=:99.0
+  - export DBUS_SESSION_BUS_ADDRESS=/dev/null
   - sh -e /etc/init.d/xvfb start
   - git clone https://github.com/MYOB-Technology/http_stub_example_consumer.git ../http_stub_example_consumer
   - git clone https://github.com/MYOB-Technology/http_stub_example.git ../http_stub_example
-before_script:
-  - npm run install-geckodriver
-  - npm prune
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+  - export PATH="$HOME/.yarn/bin:$PATH"
 script:
-  - npm run commit
+  - yarn run commit
 cache:
   directories:
     - node_modules
