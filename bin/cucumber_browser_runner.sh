@@ -8,7 +8,4 @@ if [ "$(basename "$ROOT_DIR")" = "node_modules" ]; then
   ROOT_DIR="$ROOT_DIR/cucumber-browser-preset-myob"
 fi
 
-BASE_DIRECTORY="$ROOT_DIR/lib"
-LOCAL_PATH="$ROOT_DIR/build/install_libraries/bin:$ROOT_DIR/node_modules/.bin"
-
-PATH="$LOCAL_PATH:$PATH" cucumber-js -f pretty --compiler=js:babel-register --require=${BASE_DIRECTORY}/cucumber --require=${BASE_DIRECTORY}/stepDefinitions "$@"
+PATH="$ROOT_DIR/node_modules/.bin:$PATH" cucumber-js -f pretty --compiler=js:babel-register --require=${ROOT_DIR}/lib/cucumber --require=${ROOT_DIR}/lib/stepDefinitions "$@"

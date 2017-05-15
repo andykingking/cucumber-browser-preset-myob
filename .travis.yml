@@ -3,7 +3,10 @@ node_js:
 services:
   - docker
 addons:
-  firefox: "50.1.0"
+  firefox: "53.0.2"
+  apt:
+    packages:
+      - google-chrome-stable
 env:
   DOCKER_COMPOSE_VERSION: 1.8.1
 before_install:
@@ -16,7 +19,6 @@ before_install:
   - git clone https://github.com/MYOB-Technology/http_stub_example_consumer.git ../http_stub_example_consumer
   - git clone https://github.com/MYOB-Technology/http_stub_example.git ../http_stub_example
 before_script:
-  - npm run install-geckodriver
   - npm prune
 script:
   - npm run commit

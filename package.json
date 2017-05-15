@@ -1,6 +1,6 @@
 {
   "name": "cucumber-browser-preset-myob",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A common approach for Cucumber features driving a browser via Selenium",
   "license": "MIT",
   "author": "Matthew Ueckerman <matthew.ueckerman@myob.com> http://github.com/dueckes",
@@ -22,7 +22,6 @@
     "lib/"
   ],
   "bin": {
-    "install_geckodriver": "./bin/install_geckodriver.sh",
     "cucumber_browser_runner": "./bin/cucumber_browser_runner.sh"
   },
   "engines": {
@@ -30,8 +29,7 @@
   },
   "scripts": {
     "clean": "rm -rf lib tmp",
-    "install-geckodriver": "./bin/install_geckodriver.sh",
-    "setup": "npm cache clean && rm -rf node_modules && rm -rf install_libraries && npm install && npm run install-geckodriver",
+    "setup": "npm cache clean && rm -rf node_modules && rm -rf install_libraries && npm install",
     "lint": "npm run bundle && eslint . --ext .js",
     "bundle": "babel src -d lib --retain-lines",
     "start-servers": "docker-compose up --build --force-recreate -d",
@@ -49,8 +47,10 @@
     "babel-plugin-transform-class-properties": "^6.18.0",
     "lodash.merge": "^4.6.0",
     "lodash.tolower": "^4.1.2",
-    "cucumber": "^1.3.1",
-    "selenium-webdriver": "^3.0.1",
+    "cucumber": "^1.3.3",
+    "selenium-webdriver": "^3.4.0",
+    "chromedriver": "^2.29.0",
+    "geckodriver": "^1.6.1",
     "sanitize-filename": "^1.6.1",
     "mkdirp": "^0.5.1",
     "axios": "^0.15.3",

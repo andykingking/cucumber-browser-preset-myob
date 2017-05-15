@@ -20,6 +20,7 @@ This library integrates tightly with the following libraries:
 * [Cucumber](https://github.com/cucumber/cucumber-js)
 * [Selenium](https://www.npmjs.com/package/selenium-webdriver)
 * Installs & uses [geckodriver](https://github.com/mozilla/geckodriver) to drive Firefox
+* Installs & uses [chromedriver](https://sites.google.com/a/chromium.org/chromedriver) to drive Google Chrome
 
 ##Patterns & Practices
 
@@ -38,6 +39,11 @@ The project offers a number of integration points.
 ###Test Runner
 
 A `cucumber_browser_runner` sh script is provided that runs cucumber using [babel](https://github.com/babel/babel/tree/master/packages/babel-register) and auto-loads essential `cucumber-browser-preset-myob` dependencies.
+
+The driver can be selected using the `SELENIUM_DRIVER` environment variable. Currently supported drivers are:
+
+* firefox (default)
+* chrome
 
 ###Page Objects
 

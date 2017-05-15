@@ -20,4 +20,5 @@ echo ">>> Servers started"
 trap clean_up EXIT INT TERM
 
 echo ">>> Running tests..."
-npm run cucumber
+SELENIUM_DRIVER=chrome npm run cucumber
+SELENIUM_DRIVER=firefox npm run cucumber
