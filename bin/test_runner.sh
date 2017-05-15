@@ -14,8 +14,10 @@ function clean_up() {
 }
 
 function wait_until_responding() {
+  echo "Waiting for $1:$2 to respond..."
   for i in $(seq 1 600); do
     if nc -z $1 $2; then
+      echo "$1:$2 has responded"
       break
     else
       sleep 0.1
