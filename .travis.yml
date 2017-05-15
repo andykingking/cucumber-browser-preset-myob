@@ -10,6 +10,7 @@ addons:
 env:
   DOCKER_COMPOSE_VERSION: 1.8.1
   YARN_VERSION: 0.24.4
+  DBUS_SESSION_BUS_ADDRESS: /dev/null
 before_install:
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
