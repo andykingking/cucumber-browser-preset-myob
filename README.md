@@ -42,7 +42,7 @@ The project offers a number of integration points.
 
 A `cucumber_browser_runner` sh script is provided that runs cucumber using [babel](https://github.com/babel/babel/tree/master/packages/babel-register) and auto-loads essential `cucumber-browser-preset-myob` dependencies.
 
-The driver can be selected using the `SELENIUM_DRIVER` environment variable. Currently supported drivers are:
+The browser can be selected using the `BROWSER_TYPE` environment variable. Currently supported browsers are:
 
 * firefox (default)
 * chrome
