@@ -1,6 +1,6 @@
 {
   "name": "cucumber-browser-preset-myob",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A common approach for Cucumber features driving a browser via Selenium",
   "license": "MIT",
   "author": "Matthew Ueckerman <matthew.ueckerman@myob.com> http://github.com/dueckes",
@@ -29,15 +29,15 @@
   },
   "scripts": {
     "clean": "rm -rf lib tmp",
-    "setup": "npm cache clean && rm -rf node_modules && rm -rf install_libraries && npm install",
-    "lint": "npm run bundle && eslint . --ext .js",
+    "setup": "yarn cache clean && yarn run clean && rm -rf node_modules && yarn install",
+    "lint": "yarn run bundle && eslint . --ext .js",
     "bundle": "babel src -d lib --retain-lines",
     "start-servers": "bin/start_servers.sh",
     "stop-servers": "docker-compose down",
-    "prepare-test": "npm run start-servers && npm run bundle",
+    "prepare-test": "yarn run start-servers && yarn run bundle",
     "cucumber": "bin/cucumber_browser_runner.sh --require=features/support --require=features/stepDefinitions",
-    "test": "npm run bundle && bin/test_runner.sh",
-    "commit": "npm run clean && npm run lint && npm run test",
+    "test": "yarn run bundle && bin/test_runner.sh",
+    "commit": "yarn run clean && yarn run lint && yarn run test",
     "publish-please": "publish-please"
   },
   "dependencies": {
